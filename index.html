@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIPHER.GEN — Password Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="grid-overlay"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+<div class="scanlines"></div>
+<div class="cursor-glow" id="cursor-glow"></div>
+
+<div class="page">
+  <header>
+    <div class="logo-row">
+      <div class="logo-icon">🔐</div>
+      <h1>CIPHER.GEN</h1>
+    </div>
+    <p class="subtitle">// SECURE PASSWORD GENERATOR <span>█</span></p>
+  </header>
+
+  <div class="card">
+    <div class="card-corner tl"></div>
+    <div class="card-corner tr"></div>
+    <div class="card-corner bl"></div>
+    <div class="card-corner br"></div>
+
+    <!-- Password Output -->
+    <div class="pw-label">GENERATED PASSWORD</div>
+    <div class="pw-display-wrap">
+      <div class="pw-box">
+        <div id="password-text">Click GENERATE to create password...</div>
+        <button class="copy-btn" id="copy-btn" title="Copy to clipboard">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="strength-row">
+        <div class="strength-bars">
+          <div class="strength-bar" id="bar1"></div>
+          <div class="strength-bar" id="bar2"></div>
+          <div class="strength-bar" id="bar3"></div>
+          <div class="strength-bar" id="bar4"></div>
+        </div>
+        <div class="strength-label" id="strength-label">—</div>
+      </div>
+    </div>
+
+    <!-- Length -->
+    <div class="section-label">Password Length</div>
+    <div class="slider-row">
+      <div class="slider-wrap">
+        <div id="slider-fill"></div>
+        <input type="range" id="length-slider" min="6" max="64" value="16">
+      </div>
+      <div class="length-display" id="length-display">16</div>
+    </div>
+
+    <!-- Character Options -->
+    <div class="section-label">Character Types</div>
+    <div class="options-grid">
+      <div class="option-item active" data-opt="uppercase">
+        <div class="option-info">
+          <span class="option-name">Uppercase</span>
+          <span class="option-example">A B C D E F</span>
+        </div>
+        <div class="toggle"></div>
+      </div>
+      <div class="option-item active" data-opt="lowercase">
+        <div class="option-info">
+          <span class="option-name">Lowercase</span>
+          <span class="option-example">a b c d e f</span>
+        </div>
+        <div class="toggle"></div>
+      </div>
+      <div class="option-item active" data-opt="numbers">
+        <div class="option-info">
+          <span class="option-name">Numbers</span>
+          <span class="option-example">0 1 2 3 4 5</span>
+        </div>
+        <div class="toggle"></div>
+      </div>
+      <div class="option-item active" data-opt="symbols">
+        <div class="option-info">
+          <span class="option-name">Symbols</span>
+          <span class="option-example">! @ # $ % ^</span>
+        </div>
+        <div class="toggle"></div>
+      </div>
+    </div>
+
+    <!-- Generate Button -->
+    <button class="generate-btn" id="gen-btn">
+      <div class="btn-bg"></div>
+      <div class="btn-text">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+        </svg>
+        GENERATE SECURE PASSWORD
+      </div>
+    </button>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-chip">
+        <span class="stat-val" id="stat-entropy">—</span>
+        <span class="stat-key">Entropy (bits)</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-val" id="stat-charset">—</span>
+        <span class="stat-key">Charset Size</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-val" id="stat-combos">—</span>
+        <span class="stat-key">Combinations</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- History -->
+  <div class="history-section">
+    <div class="history-header">
+      <span>// GENERATION LOG</span>
+      <button class="clear-history" id="clear-hist">CLEAR LOG</button>
+    </div>
+    <div class="history-list" id="history-list"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast">PASSWORD COPIED TO CLIPBOARD</div>
+
+<script src="script.js"></script>
+</body>
+</html>
