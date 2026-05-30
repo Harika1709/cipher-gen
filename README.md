@@ -42,18 +42,20 @@ A futuristic and secure password generator website built using **HTML, CSS, and 
 * Responsive futuristic interface
 
 ---
-
 ## 📂 Project Structure
 
-```bash
-CIPHER.GEN/
+```text
+cipher-gen/
 │
 ├── index.html
 ├── style.css
 ├── script.js
-└── README.md
+├── README.md
+│
+├── demo/
+│
+└── screenshots/
 ```
-
 ---
 
 ## ⚡ How to Run
@@ -92,7 +94,7 @@ The complete project demonstration video is available in the `demo` folder.
 ```text
 demo/
 └── cipher-gen-demo.mp4
-
+```
 ---
 
 
