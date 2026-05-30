@@ -85,6 +85,16 @@ The generator creates secure passwords using:
 ![Mobile View](screenshots/mobile-view.png)
 
 ---
+## 🎥 Demo Video
+
+The complete project demonstration video is available in the `demo` folder.
+
+```text
+demo/
+└── cipher-gen-demo.mp4
+
+---
+
 
 ## 🌌 Future Improvements
 
