@@ -93,7 +93,7 @@ The complete project demonstration video is available in the `demo` folder.
 
 ```text
 demo/
-└── cipher-gen-demo.mp4
+└── cipher-gen-demo.mov
 ```
 ---
 
